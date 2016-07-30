@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.xzit.zhihu"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    //UIL图片加载框架
+    /**
+     *  图片异步加载和适当压缩的框架
+     * UIL(Universal-Image-Loader)旨在提供一个强大的、灵活的和高度可定制的工具图像加载、缓存和显示功能。
+     *  并且提供了许多配置选项和良好控制图像加载和缓存的过程。
+     *  所以在之前长久的一段时间里，该框架的使用非常广且很方便哦
+     *  特点
+     *  支持多线程图片加载(同步或者异步)
+     支持自定义配置ImageLoader，例如线程池，图片下载器，内存缓存策略，硬盘缓存策略，图片显示选项以及其他的一些配置
+     支持自定义配置图片显示，例如:缓存开关选择,界面选项,图片加载进度以及显示
+     支持图片内存缓存或者文件系统,设备SD缓存
+     支持图片加载进度监听(包括图片下载进度监听)
+     支持框架更多工具类的扩展
+     同样可以支持例如ListView，GridView进行滑动的时候暂停或者恢复图片加载显示等功能。
+     当然还有其他很过特点,具体大家读了源码就会知道啦….
+     */
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
+    //android-async-http框架
+    /**
+     *   (1) 在匿名回调中处理请求结果
+     (2) 在UI线程外进行http请求
+     (3) 文件断点上传
+     (4) 智能重试
+     (5) 默认gzip压缩
+     (6) 支持解析成Json格式
+     (7) 可将Cookies持久化到SharedPreferences
+     */
+    compile 'com.loopj.android:android-async-http:1.4.8'
+    compile files('libs/httpcore-4.1.4.jar')
+}
